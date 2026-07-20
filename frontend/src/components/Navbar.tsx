@@ -9,7 +9,7 @@ const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Profil Desa', href: '/profil-desa' },
   { label: 'Infografis', href: '/infografis' },
-  { label: 'UMKM', href: '/umkm' },
+  { label: 'Potensi Desa', href: '/potensi-desa' },
   { label: 'Kegiatan', href: '/kegiatan' },
 ]
 
@@ -37,7 +37,7 @@ export default function Navbar() {
               <Link
                 href={link.href}
                 className={`px-4 py-2 rounded-xl font-medium text-sm transition-all ${
-                  pathname === link.href
+                  pathname === link.href || pathname.startsWith(link.href + '/')
                     ? 'bg-primary-500 text-white'
                     : 'text-gray-600 hover:bg-primary-50 hover:text-primary-600'
                 }`}
@@ -68,7 +68,7 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className={`block px-4 py-2.5 rounded-xl font-medium text-sm transition-all ${
-                    pathname === link.href
+                    pathname === link.href || pathname.startsWith(link.href + '/')
                       ? 'bg-primary-500 text-white'
                       : 'text-gray-600 hover:bg-primary-50 hover:text-primary-600'
                   }`}
