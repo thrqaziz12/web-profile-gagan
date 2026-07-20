@@ -135,3 +135,105 @@ export const KEGIATAN = [
     whatsapp: 'https://wa.me/6281234567890',
   },
 ]
+
+// ===================== DATA OLAHRAGA =====================
+
+export type Olahraga = {
+  id: number
+  nama: string
+  icon: string
+  pelatih: string
+  ketua: string
+  jumlahAnggota: number
+  whatsapp: string
+  jadwal: { hari: string; jam: string }[]
+  prestasi: { tahun: string; keterangan: string }[]
+  galeri: string[]
+}
+
+export const OLAHRAGA: Olahraga[] = [
+  {
+    id: 1,
+    nama: 'Bulu Tangkis',
+    icon: '🏸',
+    pelatih: '[Nama Pelatih Bulu Tangkis]',
+    ketua: '[Nama Ketua Bulu Tangkis]',
+    jumlahAnggota: 22,
+    whatsapp: 'https://wa.me/6281234567893',
+    jadwal: [
+      { hari: 'Selasa', jam: '16.00 – 18.00 WIB' },
+      { hari: 'Jumat', jam: '16.00 – 18.00 WIB' },
+    ],
+    prestasi: [
+      { tahun: '2024', keterangan: 'Juara 2 Turnamen Bulu Tangkis Tingkat Kecamatan' },
+      { tahun: '2023', keterangan: 'Juara 1 Kategori Ganda Putra HUT RI Tingkat Desa' },
+    ],
+    galeri: [
+      '/images/olahraga/bulutangkis1.jpg',
+      '/images/olahraga/bulutangkis2.jpg',
+      '/images/olahraga/bulutangkis3.jpg',
+    ],
+  },
+  {
+    id: 2,
+    nama: 'Sepak Bola',
+    icon: '⚽',
+    pelatih: '[Nama Pelatih Sepak Bola]',
+    ketua: '[Nama Ketua Sepak Bola]',
+    jumlahAnggota: 27,
+    whatsapp: 'https://wa.me/6281234567894',
+    jadwal: [
+      { hari: 'Minggu', jam: '07.00 – 09.00 WIB' },
+    ],
+    prestasi: [
+      { tahun: '2025', keterangan: 'Runner-up Turnamen Sepak Bola Antar Dusun' },
+      { tahun: '2024', keterangan: 'Juara 3 Liga Mini Kecamatan' },
+    ],
+    galeri: [
+      '/images/olahraga/sepakbola1.jpg',
+      '/images/olahraga/sepakbola2.jpg',
+      '/images/olahraga/sepakbola3.jpg',
+    ],
+  },
+  {
+    id: 3,
+    nama: 'Voli',
+    icon: '🏐',
+    pelatih: '[Nama Pelatih Voli]',
+    ketua: '[Nama Ketua Voli]',
+    jumlahAnggota: 18,
+    whatsapp: 'https://wa.me/6281234567895',
+    jadwal: [
+      { hari: 'Rabu', jam: '15.30 – 17.30 WIB' },
+      { hari: 'Sabtu', jam: '15.30 – 17.30 WIB' },
+    ],
+    prestasi: [
+      { tahun: '2025', keterangan: 'Juara 1 Turnamen Voli HUT RI Tingkat Desa' },
+    ],
+    galeri: [
+      '/images/olahraga/voli1.jpg',
+      '/images/olahraga/voli2.jpg',
+      '/images/olahraga/voli3.jpg',
+    ],
+  },
+  {
+    id: 4,
+    nama: 'Senam',
+    icon: '🤸',
+    pelatih: '[Nama Instruktur Senam]',
+    ketua: '[Nama Ketua Kelompok Senam]',
+    jumlahAnggota: 34,
+    whatsapp: 'https://wa.me/6281234567896',
+    jadwal: [
+      { hari: 'Minggu', jam: '06.00 – 07.30 WIB' },
+    ],
+    prestasi: [
+      { tahun: '2024', keterangan: 'Penampilan Terbaik Senam Massal HUT RI Tingkat Kecamatan' },
+    ],
+    galeri: [
+      '/images/olahraga/senam1.jpg',
+      '/images/olahraga/senam2.jpg',
+      '/images/olahraga/senam3.jpg',
+    ],
+  },
+]
