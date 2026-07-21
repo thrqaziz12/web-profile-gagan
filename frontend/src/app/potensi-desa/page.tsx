@@ -4,11 +4,11 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { UMKM, OLAHRAGA, KEBUDAYAAN } from '@/lib/data'
-import { FaWhatsapp } from 'react-icons/fa'
 import { FiChevronRight } from 'react-icons/fi'
+import Image from 'next/image'
 
 const tabs = [
-  { id: 'umkm', label: 'UMKM', icon: '🏻' },
+  { id: 'umkm', label: 'UMKM', icon: '🏪' },
   { id: 'olahraga', label: 'Olahraga', icon: '⚽' },
   { id: 'wisata', label: 'Wisata', icon: '🌄' },
   { id: 'kebudayaan', label: 'Kebudayaan', icon: '🎭' },
@@ -17,43 +17,28 @@ const tabs = [
 function UMKMTab() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {UMKM.map((umkm) => (
-          <div key={umkm.id} className="card hover:shadow-xl transition-shadow">
-            <div className="flex items-center gap-4 mb-5">
-              <div className="w-16 h-16 bg-accent-100 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">
-                🏻
-              </div>
-              <div>
-                <h3 className="font-bold text-gray-800 text-lg leading-tight">{umkm.namaUsaha}</h3>
-                <p className="text-gray-500 text-sm">{umkm.namaPemilik}</p>
-                <p className="text-primary-600 text-xs mt-0.5">📍 {umkm.alamat}</p>
-              </div>
+          <Link
+            key={umkm.id}
+            href={`/potensi-desa/umkm/${umkm.id}`}
+            className="group card hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer"
+          >
+            {/* Logo */}
+            <div className="w-full aspect-video bg-accent-50 rounded-2xl overflow-hidden mb-4 flex items-center justify-center relative">
+              {/* Uncomment saat logo tersedia */}
+              {/* <Image src={umkm.logo} alt={umkm.namaUsaha} fill className="object-cover" /> */}
+              <span className="text-5xl">🏪</span>
             </div>
-            <div className="mb-5">
-              <h4 className="font-semibold text-gray-700 text-sm mb-3">Daftar Produk</h4>
-              <div className="space-y-2">
-                {umkm.produk.map((produk, i) => (
-                  <div key={i} className="flex items-center justify-between bg-primary-50 rounded-xl p-3">
-                    <div className="flex items-center gap-2">
-                      <div className="w-10 h-10 bg-primary-200 rounded-lg flex items-center justify-center text-lg">📦</div>
-                      <span className="text-sm font-medium text-gray-700">{produk.nama}</span>
-                    </div>
-                    <span className="text-primary-600 font-bold text-sm">{produk.harga}</span>
-                  </div>
-                ))}
-              </div>
+            {/* Info */}
+            <h3 className="font-bold text-gray-800 text-base leading-tight mb-1">{umkm.namaUsaha}</h3>
+            <p className="text-gray-500 text-sm mb-1">{umkm.namaPemilik}</p>
+            <p className="text-primary-600 text-xs">📍 {umkm.alamat}</p>
+            {/* Lihat detail */}
+            <div className="mt-4 flex items-center gap-1 text-primary-500 text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+              Lihat Detail <FiChevronRight size={14} />
             </div>
-            <a
-              href={umkm.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white rounded-xl py-2.5 font-medium text-sm transition-colors"
-            >
-              <FaWhatsapp size={18} />
-              Hubungi via WhatsApp
-            </a>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
