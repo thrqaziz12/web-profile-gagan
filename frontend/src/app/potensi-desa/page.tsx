@@ -3,14 +3,15 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { UMKM, OLAHRAGA } from '@/lib/data'
+import { UMKM, OLAHRAGA, KEBUDAYAAN } from '@/lib/data'
 import { FaWhatsapp } from 'react-icons/fa'
 import { FiChevronRight } from 'react-icons/fi'
 
 const tabs = [
-  { id: 'umkm', label: 'UMKM', icon: '🏪' },
+  { id: 'umkm', label: 'UMKM', icon: '🏻' },
   { id: 'olahraga', label: 'Olahraga', icon: '⚽' },
   { id: 'wisata', label: 'Wisata', icon: '🌄' },
+  { id: 'kebudayaan', label: 'Kebudayaan', icon: '🎭' },
 ]
 
 function UMKMTab() {
@@ -21,7 +22,7 @@ function UMKMTab() {
           <div key={umkm.id} className="card hover:shadow-xl transition-shadow">
             <div className="flex items-center gap-4 mb-5">
               <div className="w-16 h-16 bg-accent-100 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">
-                🏪
+                🏻
               </div>
               <div>
                 <h3 className="font-bold text-gray-800 text-lg leading-tight">{umkm.namaUsaha}</h3>
@@ -111,6 +112,34 @@ function WisataTab() {
   )
 }
 
+function KebudayaanTab() {
+  return (
+    <div className="max-w-5xl mx-auto px-4 py-10">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-5">
+        {KEBUDAYAAN.map((budaya) => (
+          <Link
+            key={budaya.id}
+            href={`/potensi-desa/kebudayaan/${budaya.id}`}
+            className="group card hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer flex flex-col items-center text-center p-6"
+          >
+            <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">
+              {budaya.icon}
+            </div>
+            <h3 className="font-bold text-gray-800 text-base leading-tight mb-1">{budaya.nama}</h3>
+            <span className="inline-block bg-accent-100 text-accent-700 text-xs font-semibold px-2 py-0.5 rounded-full mb-1">
+              {budaya.kategori}
+            </span>
+            <p className="text-primary-500 text-xs font-medium">{budaya.jumlahAnggota} anggota aktif</p>
+            <div className="mt-4 flex items-center gap-1 text-primary-500 text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+              Lihat Detail <FiChevronRight size={14} />
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function PotensiDesaPage() {
   const [activeTab, setActiveTab] = useState('umkm')
 
@@ -121,18 +150,18 @@ export default function PotensiDesaPage() {
         <section className="bg-gradient-to-br from-primary-500 to-accent-600 text-white py-12 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl font-bold mb-3">Potensi Desa</h1>
-            <p className="text-primary-100">Kenali potensi unggulan Dusun Gagan — dari usaha, olahraga, hingga wisata</p>
+            <p className="text-primary-100">Kenali potensi unggulan Dusun Gagan — dari usaha, olahraga, wisata, hingga kebudayaan</p>
           </div>
         </section>
 
         <div className="bg-white border-b border-gray-200 sticky top-[64px] z-40">
           <div className="max-w-5xl mx-auto px-4">
-            <div className="flex gap-1 py-2">
+            <div className="flex gap-1 py-2 overflow-x-auto">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all ${
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all whitespace-nowrap ${
                     activeTab === tab.id
                       ? 'bg-primary-500 text-white shadow-sm'
                       : 'text-gray-600 hover:bg-primary-50 hover:text-primary-600'
@@ -149,6 +178,7 @@ export default function PotensiDesaPage() {
         {activeTab === 'umkm' && <UMKMTab />}
         {activeTab === 'olahraga' && <OlahragaTab />}
         {activeTab === 'wisata' && <WisataTab />}
+        {activeTab === 'kebudayaan' && <KebudayaanTab />}
       </main>
       <Footer />
     </>
