@@ -12,7 +12,7 @@ export default function KegiatanPage() {
         <section className="bg-gradient-to-br from-blue-500 to-primary-600 text-white py-12 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl font-bold mb-3">Kegiatan Desa</h1>
-            <p className="text-blue-100">Agenda dan kegiatan Dusun Gagan</p>
+            <p className="text-blue-100">Agenda dan kegiatan Padukuhan Gagan</p>
           </div>
         </section>
 

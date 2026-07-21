@@ -36,7 +36,7 @@ export default function HomePage() {
         <section className="bg-primary-50 py-12 px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="section-title text-center">Visi & Misi</h2>
-            <p className="section-subtitle">Arah dan tujuan Dusun Gagan</p>
+            <p className="section-subtitle">Arah dan Tujuan Padukuhan Gagan</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="card border-l-4 border-primary-500">
                 <div className="flex items-center gap-2 mb-3">
@@ -104,7 +104,7 @@ export default function HomePage() {
         {/* Berita Terkini */}
         <section className="max-w-5xl mx-auto px-4 py-12">
           <h2 className="section-title text-center">Berita Terkini</h2>
-          <p className="section-subtitle">Informasi terbaru dari Dukuh Gagan</p>
+          <p className="section-subtitle">Informasi terbaru dari Padukuhan Gagan</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {BERITA.map((berita) => (
               <div key={berita.id} className="card hover:shadow-lg transition-shadow">
