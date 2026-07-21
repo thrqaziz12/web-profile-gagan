@@ -71,7 +71,7 @@ export const DATA_PENDUDUK = {
     { name: 'Pascasarjana', jumlah: 20 },
   ],
   pekerjaan: [
-    { label: 'Pelajar/Mahasiswa', nilai: 340 },
+    { label: 'Pelajar mahasiswa', nilai: 340 },
     { label: 'Petani', nilai: 210 },
     { label: 'Pedagang', nilai: 175 },
     { label: 'Buruh', nilai: 190 },

@@ -25,7 +25,7 @@ export default function Navbar() {
             G
           </div>
           <span className="font-bold text-primary-700 text-lg leading-tight">
-            Dusun<br />
+            Padukuhan<br />
             <span className="text-accent-500">Gagan</span>
           </span>
         </Link>

@@ -12,7 +12,7 @@ export default function Footer() {
             <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center">
               <span className="text-primary-700 font-bold text-2xl">G</span>
             </div>
-            <p className="font-bold text-xl">Dusun Gagan</p>
+            <p className="font-bold text-xl">Padukuhan Gagan</p>
             <p className="text-primary-200 text-sm leading-relaxed text-center md:text-left">
               {DESA_INFO.alamat}
             </p>
@@ -53,13 +53,13 @@ export default function Footer() {
           {/* Credit */}
           <div className="flex flex-col items-center md:items-end justify-center">
             <p className="text-primary-200 text-sm text-center md:text-right">
-              Dibuat dengan ❤️ oleh
+              Dibuat oleh
             </p>
             <p className="font-semibold text-accent-300 text-center md:text-right mt-1">
               KKN UPNVYK 84.94
             </p>
             <p className="text-primary-300 text-xs mt-1">
-              © {new Date().getFullYear()} Dusun Gagan
+              © {new Date().getFullYear()} Padukuhan Gagan
             </p>
           </div>
         </div>

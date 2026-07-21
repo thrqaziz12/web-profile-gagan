@@ -13,12 +13,9 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-primary-600 via-primary-500 to-accent-400 text-white py-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-block bg-white/20 text-white text-sm font-medium px-4 py-1 rounded-full mb-4">
-              KKN UPNVYK 84.94
-            </span>
             <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
               Selamat Datang di<br />
-              <span className="text-accent-200">Dusun Gagan</span>
+              <span className="text-accent-200">Padukuhan Gagan</span>
             </h1>
             <p className="text-primary-100 text-lg mb-8">
               Dusun yang maju, mandiri, dan penuh kearifan lokal
@@ -32,7 +29,6 @@ export default function HomePage() {
         {/* Slider Foto */}
         <section className="max-w-5xl mx-auto px-4 py-12">
           <h2 className="section-title text-center">Galeri Desa</h2>
-          <p className="section-subtitle">Keindahan Dusun Gagan</p>
           <HeroSlider />
         </section>
 
@@ -69,8 +65,7 @@ export default function HomePage() {
 
         {/* Sambutan Kepala Desa */}
         <section className="max-w-5xl mx-auto px-4 py-12">
-          <h2 className="section-title text-center">Sambutan Kepala Dusun</h2>
-          <p className="section-subtitle">Pesan dari pimpinan Dusun Gagan</p>
+          <h2 className="section-title text-center">Sambutan Ketua Dukuh</h2>
           <div className="card max-w-3xl mx-auto">
             <div className="flex flex-col md:flex-row items-center gap-6">
               <div className="flex-shrink-0">
@@ -91,7 +86,6 @@ export default function HomePage() {
         <section className="bg-primary-50 py-12 px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="section-title text-center">Peta Desa</h2>
-            <p className="section-subtitle">Lokasi Dusun Gagan</p>
             <div className="rounded-2xl overflow-hidden shadow-md h-72 md:h-96">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.0!2d110.4!3d-7.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDgnMDAuMCJTIDExMMKwMjQnMDAuMCJF!5e0!3m2!1sen!2sid!4v1234567890"
@@ -110,7 +104,7 @@ export default function HomePage() {
         {/* Berita Terkini */}
         <section className="max-w-5xl mx-auto px-4 py-12">
           <h2 className="section-title text-center">Berita Terkini</h2>
-          <p className="section-subtitle">Informasi terbaru dari Dusun Gagan</p>
+          <p className="section-subtitle">Informasi terbaru dari Dukuh Gagan</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {BERITA.map((berita) => (
               <div key={berita.id} className="card hover:shadow-lg transition-shadow">
