@@ -237,3 +237,111 @@ export const OLAHRAGA: Olahraga[] = [
     ],
   },
 ]
+
+// ===================== DATA KEBUDAYAAN =====================
+
+export type Kebudayaan = {
+  id: number
+  nama: string
+  icon: string
+  kategori: string
+  ketua: string
+  jumlahAnggota: number
+  deskripsi: string
+  whatsapp: string
+  jadwal: { hari: string; jam: string }[]
+  prestasi: { tahun: string; keterangan: string }[]
+  galeri: string[]
+}
+
+export const KEBUDAYAAN: Kebudayaan[] = [
+  {
+    id: 1,
+    nama: 'Karawitan',
+    icon: '🎶',
+    kategori: 'Seni Musik Tradisional',
+    ketua: '[Nama Ketua Karawitan]',
+    jumlahAnggota: 20,
+    deskripsi: 'Karawitan adalah seni musik tradisional Jawa yang menggunakan gamelan. Kelompok karawitan Dusun Gagan aktif melestarikan warisan leluhur melalui latihan rutin dan penampilan di berbagai acara adat.',
+    whatsapp: 'https://wa.me/6281234567897',
+    jadwal: [
+      { hari: 'Kamis', jam: '19.00 – 21.00 WIB' },
+    ],
+    prestasi: [
+      { tahun: '2025', keterangan: 'Penampilan Terbaik Festival Karawitan Tingkat Kecamatan' },
+      { tahun: '2024', keterangan: 'Juara 2 Lomba Karawitan HUT RI Tingkat Desa' },
+    ],
+    galeri: [
+      '/images/kebudayaan/karawitan1.jpg',
+      '/images/kebudayaan/karawitan2.jpg',
+      '/images/kebudayaan/karawitan3.jpg',
+    ],
+  },
+  {
+    id: 2,
+    nama: 'Kuda Lumping',
+    icon: '🐴',
+    kategori: 'Seni Pertunjukan Tradisional',
+    ketua: '[Nama Ketua Kuda Lumping]',
+    jumlahAnggota: 25,
+    deskripsi: 'Kuda Lumping atau Jathilan adalah kesenian tari tradisional Jawa yang memadukan unsur seni, budaya, dan spiritual. Kelompok Kuda Lumping Dusun Gagan sering tampil pada perayaan hari besar dan acara adat dusun.',
+    whatsapp: 'https://wa.me/6281234567898',
+    jadwal: [
+      { hari: 'Sabtu', jam: '15.00 – 17.00 WIB' },
+    ],
+    prestasi: [
+      { tahun: '2025', keterangan: 'Juara 1 Penampilan Kuda Lumping Tingkat Kabupaten' },
+      { tahun: '2023', keterangan: 'Penampilan Tamu Kehormatan Festival Budaya Kabupaten' },
+    ],
+    galeri: [
+      '/images/kebudayaan/kudalumping1.jpg',
+      '/images/kebudayaan/kudalumping2.jpg',
+      '/images/kebudayaan/kudalumping3.jpg',
+    ],
+  },
+  {
+    id: 3,
+    nama: 'Seni Tari',
+    icon: '💃',
+    kategori: 'Seni Tari Tradisional',
+    ketua: '[Nama Ketua Seni Tari]',
+    jumlahAnggota: 18,
+    deskripsi: 'Kelompok Seni Tari Dusun Gagan melestarikan berbagai tarian tradisional Jawa seperti Tari Gambyong, Tari Bedhaya, dan tarian rakyat lainnya. Anggota terdiri dari berbagai usia mulai dari anak-anak hingga dewasa.',
+    whatsapp: 'https://wa.me/6281234567899',
+    jadwal: [
+      { hari: 'Rabu', jam: '16.00 – 18.00 WIB' },
+      { hari: 'Sabtu', jam: '09.00 – 11.00 WIB' },
+    ],
+    prestasi: [
+      { tahun: '2025', keterangan: 'Juara 2 Festival Tari Tradisional Tingkat Kecamatan' },
+      { tahun: '2024', keterangan: 'Penampilan Terbaik HUT RI Tingkat Desa' },
+    ],
+    galeri: [
+      '/images/kebudayaan/tari1.jpg',
+      '/images/kebudayaan/tari2.jpg',
+      '/images/kebudayaan/tari3.jpg',
+    ],
+  },
+  {
+    id: 4,
+    nama: 'Wayang Kulit',
+    icon: '🎭',
+    kategori: 'Seni Pertunjukan Tradisional',
+    ketua: '[Nama Dalang / Ketua Wayang]',
+    jumlahAnggota: 15,
+    deskripsi: 'Wayang Kulit adalah warisan budaya tak benda dunia yang masih lestari di Dusun Gagan. Pertunjukan wayang kulit sering digelar pada acara-acara besar seperti bersih dusun, pernikahan adat, dan peringatan hari nasional.',
+    whatsapp: 'https://wa.me/6281234567900',
+    jadwal: [
+      { hari: 'Minggu (Selapanan)', jam: '20.00 – 24.00 WIB' },
+    ],
+    prestasi: [
+      { tahun: '2024', keterangan: 'Dalang Terbaik Festival Wayang Tingkat Kabupaten' },
+      { tahun: '2023', keterangan: 'Penampilan Khusus Peringatan Hari Wayang Nasional' },
+    ],
+    galeri: [
+      '/images/kebudayaan/wayang1.jpg',
+      '/images/kebudayaan/wayang2.jpg',
+      '/images/kebudayaan/wayang3.jpg',
+    ],
+  },
+]
