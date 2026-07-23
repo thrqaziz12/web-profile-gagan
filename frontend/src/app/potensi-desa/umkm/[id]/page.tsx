@@ -2,10 +2,10 @@
 import { useParams, useRouter } from 'next/navigation'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import UmkmFotoGaleri from '@/components/UmkmFotoGaleri'
 import { UMKM } from '@/lib/data'
 import { FaWhatsapp } from 'react-icons/fa'
 import { FiArrowLeft, FiMapPin, FiUser } from 'react-icons/fi'
-import Image from 'next/image'
 
 export default function UMKMDetailPage() {
   const params = useParams()
@@ -48,9 +48,7 @@ export default function UMKMDetailPage() {
               <FiArrowLeft size={18} /> Kembali ke Potensi Desa
             </button>
             <div className="flex items-center gap-6">
-              {/* Logo UMKM */}
-              <div className="w-20 h-20 md:w-24 md:h-24 bg-white/20 rounded-2xl overflow-hidden flex items-center justify-center flex-shrink-0 relative">
-                {/* <Image src={umkm.logo} alt={umkm.namaUsaha} fill className="object-cover" /> */}
+              <div className="w-20 h-20 md:w-24 md:h-24 bg-white/20 rounded-2xl overflow-hidden flex items-center justify-center flex-shrink-0">
                 <span className="text-4xl">🏪</span>
               </div>
               <div>
@@ -68,25 +66,9 @@ export default function UMKMDetailPage() {
 
         <div className="max-w-4xl mx-auto px-4 mt-10 space-y-8">
 
-          {/* Daftar Produk */}
+          {/* Galeri Foto */}
           <div className="card">
-            <h2 className="text-lg font-bold text-gray-800 mb-5">🛍️ Daftar Produk</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {umkm.produk.map((produk, i) => (
-                <div key={i} className="rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-                  {/* Foto Produk */}
-                  <div className="w-full aspect-video bg-primary-50 flex items-center justify-center relative overflow-hidden">
-                    {/* <Image src={produk.foto} alt={produk.nama} fill className="object-cover" /> */}
-                    <span className="text-5xl">📦</span>
-                  </div>
-                  {/* Info Produk */}
-                  <div className="p-4">
-                    <h3 className="font-semibold text-gray-800 text-sm leading-snug mb-1">{produk.nama}</h3>
-                    <p className="text-primary-600 font-bold text-base">{produk.harga}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <UmkmFotoGaleri galeri={umkm.galeri} namaUsaha={umkm.namaUsaha} />
           </div>
 
           {/* Tombol WhatsApp */}
