@@ -88,7 +88,7 @@ export default function HomePage() {
             <h2 className="section-title text-center">Peta Desa</h2>
             <div className="rounded-2xl overflow-hidden shadow-md h-72 md:h-96">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.0!2d110.4!3d-7.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDgnMDAuMCJTIDExMMKwMjQnMDAuMCJF!5e0!3m2!1sen!2sid!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9592.552200626831!2d110.59483896559476!3d-7.864041318500752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4ea7276fb3cd%3A0xc511894467331e8c!2sGagan%2C%20Pengkol%2C%20Kec.%20Nglipar%2C%20Kabupaten%20Gunungkidul%2C%20Daerah%20Istimewa%20Yogyakarta!5e1!3m2!1sid!2sid!4v1784772087508!5m2!1sid!2sid"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
