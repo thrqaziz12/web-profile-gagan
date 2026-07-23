@@ -2,7 +2,7 @@
 
 export const DESA_INFO = {
   nama: 'Dusun Gagan',
-  alamat: 'Dusun Gagan, Desa [Nama Desa], Kecamatan [Kecamatan], Kabupaten [Kabupaten], DIY – 55XXX',
+  alamat: 'Gagan, Pengkol, Kec. Nglipar, Kabupaten Gunungkidul, Daerah Istimewa Yogyakarta',
   tahunBerdiri: '19XX',
   whatsapp: 'https://wa.me/6281234567890',
   email: 'mailto:gagan@desa.id',
@@ -23,8 +23,8 @@ export const VISI_MISI = {
 }
 
 export const SAMBUTAN = {
-  nama: 'Bapak [Nama Kepala Dusun]',
-  jabatan: 'Kepala Dusun Gagan',
+  nama: 'Ibu Rustuti',
+  jabatan: 'Ketua Dusun Gagan',
   foto: '/images/kadus.jpg',
   teks: 'Selamat datang di website resmi Dusun Gagan. Melalui website ini kami berharap dapat menyampaikan informasi yang bermanfaat bagi seluruh warga dan masyarakat luas. Mari bersama-sama membangun dusun yang lebih maju dan sejahtera.',
 }
