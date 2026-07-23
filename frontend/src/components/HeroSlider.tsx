@@ -6,6 +6,9 @@ const slides = [
   { src: '/images/desa1.jpg', alt: 'Pemandangan Dusun Gagan' },
   { src: '/images/desa2.jpg', alt: 'Sawah Dusun Gagan' },
   { src: '/images/desa3.jpg', alt: 'Kegiatan Warga Dusun Gagan' },
+  { src: '/images/galeri-gagan-1.jpg', alt: 'Turnamen Bola Voly Porduk 2026' },
+  { src: '/images/galeri-gagan-2.jpg', alt: 'Pertemuan Warga Padukuhan Gagan' },
+  { src: '/images/galeri-gagan-3.jpg', alt: 'Kerja Bakti Warga Padukuhan Gagan' },
 ]
 
 export default function HeroSlider() {
