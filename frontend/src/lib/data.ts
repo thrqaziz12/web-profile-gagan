@@ -423,3 +423,74 @@ export const KARANGTARUNA = {
     { src: '/images/karangtaruna/galeri4.jpg', alt: 'Rapat Pengurus Karangtaruna' },
   ],
 }
+
+// ===================== DATA WISATA =====================
+
+export type Wisata = {
+  id: number
+  nama: string
+  icon: string
+  kategori: string
+  deskripsi: string
+  lokasi: string
+  galeri: string[]
+}
+
+export const WISATA: Wisata[] = [
+  {
+    id: 1,
+    nama: 'Sawah Pemandangan Indah',
+    icon: '🌾',
+    kategori: 'Wisata Alam',
+    deskripsi:
+      'Hamparan sawah hijau yang membentang luas menjadi daya tarik utama wisata alam Dusun Gagan. Pengunjung dapat menikmati kesegaran udara pedesaan, berfoto di tepi pematang sawah, serta menyaksikan aktivitas bertani warga lokal yang masih menggunakan cara-cara tradisional.',
+    lokasi: 'Wilayah Persawahan Dusun Gagan',
+    galeri: [
+      '/images/wisata/sawah1.jpg',
+      '/images/wisata/sawah2.jpg',
+      '/images/wisata/sawah3.jpg',
+    ],
+  },
+  {
+    id: 2,
+    nama: 'Sungai Jernih',
+    icon: '💧',
+    kategori: 'Wisata Air',
+    deskripsi:
+      'Aliran sungai yang jernih dan sejuk menjadi destinasi favorit warga maupun pengunjung dari luar dusun. Sungai ini cocok untuk wisata edukasi alam, rekreasi keluarga, serta aktivitas bermain air bagi anak-anak dalam suasana alam yang asri dan alami.',
+    lokasi: 'Pinggiran Dusun Gagan',
+    galeri: [
+      '/images/wisata/sungai1.jpg',
+      '/images/wisata/sungai2.jpg',
+      '/images/wisata/sungai3.jpg',
+    ],
+  },
+  {
+    id: 3,
+    nama: 'Spot Foto Desa',
+    icon: '📸',
+    kategori: 'Wisata Foto',
+    deskripsi:
+      'Berbagai spot foto menarik tersebar di penjuru Dusun Gagan dengan latar belakang alam khas pedesaan Gunungkidul. Mulai dari latar sawah, rumah tradisional Jawa, hingga instalasi artistik buatan warga yang menjadi daya tarik tersendiri bagi para wisatawan.',
+    lokasi: 'Berbagai Titik di Dusun Gagan',
+    galeri: [
+      '/images/wisata/spotfoto1.jpg',
+      '/images/wisata/spotfoto2.jpg',
+      '/images/wisata/spotfoto3.jpg',
+    ],
+  },
+  {
+    id: 4,
+    nama: 'Kuliner Tradisional',
+    icon: '🍱',
+    kategori: 'Wisata Kuliner',
+    deskripsi:
+      'Sajian kuliner khas desa yang autentik dan terjangkau siap memanjakan lidah para wisatawan. Mulai dari jajanan pasar tradisional, masakan rumahan khas Gunungkidul, hingga minuman herbal tradisional yang dibuat langsung oleh warga setempat.',
+    lokasi: 'Warung dan Rumah Warga Dusun Gagan',
+    galeri: [
+      '/images/wisata/kuliner1.jpg',
+      '/images/wisata/kuliner2.jpg',
+      '/images/wisata/kuliner3.jpg',
+    ],
+  },
+]
