@@ -3,7 +3,9 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { FiX, FiChevronLeft, FiChevronRight, FiImage } from 'react-icons/fi'
 
-const DEFAULT_FOTO = '/images/no-image.jpg'
+// Gunakan placeholder eksternal yang pasti tersedia, atau data URI sebagai fallback terakhir
+const PLACEHOLDER_SRC =
+  'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmaWxsPSIjOWNhM2FmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+Rm90byBCZWx1bSBUZXJzZWRpYTwvdGV4dD48L3N2Zz4='
 
 interface UmkmFotoGaleriProps {
   galeri?: string[]
@@ -14,14 +16,11 @@ export default function UmkmFotoGaleri({ galeri, namaUsaha }: UmkmFotoGaleriProp
   const [current, setCurrent] = useState(0)
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
+  // imgErrors menyimpan index foto yang gagal dimuat agar tidak retry terus-menerus
   const [imgErrors, setImgErrors] = useState<Record<number, boolean>>({})
 
-  // Error handling: pakai galeri default jika kosong / tidak ada
-  const fotoList =
-    galeri && galeri.length > 0
-      ? galeri
-      : [DEFAULT_FOTO]
-
+  const hasGaleri = galeri && galeri.length > 0
+  const fotoList = hasGaleri ? galeri : []
   const total = fotoList.length
 
   const prev = () => setCurrent((c) => (c - 1 + total) % total)
@@ -35,10 +34,33 @@ export default function UmkmFotoGaleri({ galeri, namaUsaha }: UmkmFotoGaleriProp
   const lightboxPrev = () => setLightboxIndex((i) => (i - 1 + total) % total)
   const lightboxNext = () => setLightboxIndex((i) => (i + 1) % total)
 
+  // Jika foto error, tampilkan PLACEHOLDER_SRC (data URI) — tidak akan trigger onError lagi
   const getSrc = (index: number) =>
-    imgErrors[index] ? DEFAULT_FOTO : fotoList[index]
+    imgErrors[index] ? PLACEHOLDER_SRC : fotoList[index]
 
-  const isDefault = !galeri || galeri.length === 0
+  const handleError = (index: number) => {
+    // Tandai error hanya sekali agar tidak loop
+    setImgErrors((prev) => {
+      if (prev[index]) return prev // sudah ditandai, tidak perlu update ulang
+      return { ...prev, [index]: true }
+    })
+  }
+
+  // Jika tidak ada galeri, tampilkan placeholder statis tanpa slider
+  if (!hasGaleri) {
+    return (
+      <div className="mb-5">
+        <h4 className="font-semibold text-gray-700 text-sm mb-3 flex items-center gap-1.5">
+          <FiImage size={15} />
+          Galeri Foto
+        </h4>
+        <div className="relative w-full h-44 rounded-xl overflow-hidden bg-gray-100 flex flex-col items-center justify-center gap-2">
+          <FiImage size={40} className="text-gray-300" />
+          <p className="text-xs text-gray-400 italic">Foto belum tersedia untuk usaha ini.</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="mb-5">
@@ -47,20 +69,18 @@ export default function UmkmFotoGaleri({ galeri, namaUsaha }: UmkmFotoGaleriProp
         Galeri Foto
       </h4>
 
-      {isDefault && (
-        <p className="text-xs text-gray-400 italic mb-2">Foto belum tersedia untuk usaha ini.</p>
-      )}
-
       {/* Slider utama */}
-      <div className="relative w-full h-44 rounded-xl overflow-hidden bg-gray-100 cursor-pointer group"
+      <div
+        className="relative w-full h-44 rounded-xl overflow-hidden bg-gray-100 cursor-pointer group"
         onClick={() => openLightbox(current)}
       >
         <Image
           src={getSrc(current)}
           alt={`Foto ${namaUsaha} ${current + 1}`}
           fill
+          unoptimized={imgErrors[current] === true} // skip optimasi untuk data URI
           className="object-cover transition-opacity duration-300"
-          onError={() => setImgErrors((prev) => ({ ...prev, [current]: true }))}
+          onError={() => handleError(current)}
         />
 
         {/* Overlay hint klik */}
@@ -126,8 +146,9 @@ export default function UmkmFotoGaleri({ galeri, namaUsaha }: UmkmFotoGaleriProp
                 src={getSrc(i)}
                 alt={`Thumb ${i + 1}`}
                 fill
+                unoptimized={imgErrors[i] === true}
                 className="object-cover"
-                onError={() => setImgErrors((prev) => ({ ...prev, [i]: true }))}
+                onError={() => handleError(i)}
               />
             </button>
           ))}
@@ -156,8 +177,9 @@ export default function UmkmFotoGaleri({ galeri, namaUsaha }: UmkmFotoGaleriProp
                 src={getSrc(lightboxIndex)}
                 alt={`Foto ${namaUsaha} ${lightboxIndex + 1}`}
                 fill
+                unoptimized={imgErrors[lightboxIndex] === true}
                 className="object-contain"
-                onError={() => setImgErrors((prev) => ({ ...prev, [lightboxIndex]: true }))}
+                onError={() => handleError(lightboxIndex)}
               />
             </div>
 
