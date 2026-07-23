@@ -169,7 +169,7 @@ export const OLAHRAGA: Olahraga[] = [
   {
     id: 1,
     nama: 'Bulu Tangkis',
-    icon: '🏸',
+    icon: '🎏',
     pelatih: '[Nama Pelatih Bulu Tangkis]',
     ketua: '[Nama Ketua Bulu Tangkis]',
     jumlahAnggota: 22,
@@ -359,3 +359,67 @@ export const KEBUDAYAAN: Kebudayaan[] = [
     ],
   },
 ]
+
+// ===================== DATA KARANGTARUNA =====================
+
+export type PengurusKT = {
+  nama: string
+  peran: string
+  foto?: string
+}
+
+export type JadwalKT = {
+  namaKegiatan: string
+  hari: string
+  tanggal: string
+  jam: string
+}
+
+export const KARANGTARUNA = {
+  nama: 'Karangtaruna Gagan',
+  logo: '/images/karangtaruna/logo.png',
+  deskripsi:
+    'Organisasi kepemudaan Padukuhan Gagan yang aktif mengembangkan potensi pemuda desa melalui kegiatan sosial, budaya, dan pemberdayaan masyarakat.',
+  whatsapp: 'https://wa.me/6281234567901',
+  nomorWhatsapp: '+62 812-3456-7901',
+  pengurus: [
+    { nama: '[Nama Ketua]', peran: 'Ketua', foto: '' },
+    { nama: '[Nama Wakil]', peran: 'Wakil Ketua', foto: '' },
+    { nama: '[Nama Sekretaris]', peran: 'Sekretaris', foto: '' },
+    { nama: '[Nama Bendahara]', peran: 'Bendahara', foto: '' },
+    { nama: '[Nama Koordinator]', peran: 'Koordinator Seksi Humas', foto: '' },
+    { nama: '[Nama Koordinator 2]', peran: 'Koordinator Seksi Sosial', foto: '' },
+  ] as PengurusKT[],
+  jadwalKegiatan: [
+    {
+      namaKegiatan: 'Rapat Rutin Pengurus',
+      hari: 'Sabtu',
+      tanggal: 'Setiap minggu pertama',
+      jam: '19.30 – 21.00 WIB',
+    },
+    {
+      namaKegiatan: 'Kerja Bakti Lingkungan',
+      hari: 'Minggu',
+      tanggal: '27 Juli 2026',
+      jam: '07.00 – 10.00 WIB',
+    },
+    {
+      namaKegiatan: 'Lomba 17 Agustus',
+      hari: 'Minggu',
+      tanggal: '17 Agustus 2026',
+      jam: '08.00 – 17.00 WIB',
+    },
+    {
+      namaKegiatan: 'Pelatihan Kewirausahaan Pemuda',
+      hari: 'Sabtu',
+      tanggal: '2 Agustus 2026',
+      jam: '09.00 – 12.00 WIB',
+    },
+  ] as JadwalKT[],
+  galeri: [
+    { src: '/images/karangtaruna/galeri1.jpg', alt: 'Kegiatan Karangtaruna Gagan' },
+    { src: '/images/karangtaruna/galeri2.jpg', alt: 'Kerja Bakti Pemuda Gagan' },
+    { src: '/images/karangtaruna/galeri3.jpg', alt: 'Lomba 17 Agustus Karangtaruna' },
+    { src: '/images/karangtaruna/galeri4.jpg', alt: 'Rapat Pengurus Karangtaruna' },
+  ],
+}
