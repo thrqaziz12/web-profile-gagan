@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import UmkmFotoGaleri from '@/components/UmkmFotoGaleri'
 import { UMKM } from '@/lib/data'
 import { FaWhatsapp } from 'react-icons/fa'
 
@@ -31,21 +32,8 @@ export default function UMKMPage() {
                   </div>
                 </div>
 
-                {/* Produk */}
-                <div className="mb-5">
-                  <h4 className="font-semibold text-gray-700 text-sm mb-3">Daftar Produk</h4>
-                  <div className="space-y-2">
-                    {umkm.produk.map((produk, i) => (
-                      <div key={i} className="flex items-center justify-between bg-primary-50 rounded-xl p-3">
-                        <div className="flex items-center gap-2">
-                          <div className="w-10 h-10 bg-primary-200 rounded-lg flex items-center justify-center text-lg">📦</div>
-                          <span className="text-sm font-medium text-gray-700">{produk.nama}</span>
-                        </div>
-                        <span className="text-primary-600 font-bold text-sm">{produk.harga}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                {/* Galeri Foto Slider */}
+                <UmkmFotoGaleri galeri={umkm.galeri} namaUsaha={umkm.namaUsaha} />
 
                 {/* WhatsApp */}
                 <a
