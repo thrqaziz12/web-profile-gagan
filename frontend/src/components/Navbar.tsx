@@ -11,6 +11,7 @@ const navLinks = [
   { label: 'Infografis', href: '/infografis' },
   { label: 'Potensi Desa', href: '/potensi-desa' },
   { label: 'Kegiatan', href: '/kegiatan' },
+  { label: 'Karangtaruna', href: '/karangtaruna' },
 ]
 
 export default function Navbar() {
