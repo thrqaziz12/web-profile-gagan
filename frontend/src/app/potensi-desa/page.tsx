@@ -3,14 +3,14 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { UMKM, OLAHRAGA, KEBUDAYAAN } from '@/lib/data'
+import { UMKM, OLAHRAGA, KEBUDAYAAN, WISATA } from '@/lib/data'
 import { FiChevronRight } from 'react-icons/fi'
 import Image from 'next/image'
 
 const tabs = [
   { id: 'umkm', label: 'UMKM', icon: '🏪' },
   { id: 'olahraga', label: 'Olahraga', icon: '⚽' },
-  { id: 'wisata', label: 'Wisata', icon: '🌄' },
+  { id: 'wisata', label: 'Wisata', icon: '🏔️' },
   { id: 'kebudayaan', label: 'Kebudayaan', icon: '🎭' },
 ]
 
@@ -28,7 +28,7 @@ function UMKMTab() {
             <div className="w-full aspect-video bg-accent-50 rounded-2xl overflow-hidden mb-4 flex items-center justify-center relative">
               {/* Uncomment saat logo tersedia */}
               {/* <Image src={umkm.logo} alt={umkm.namaUsaha} fill className="object-cover" /> */}
-              <span className="text-5xl">🏪</span>
+              <span className="text-5xl">🏃</span>
             </div>
             {/* Info */}
             <h3 className="font-bold text-gray-800 text-base leading-tight mb-1">{umkm.namaUsaha}</h3>
@@ -71,26 +71,31 @@ function OlahragaTab() {
 }
 
 function WisataTab() {
-  const destinasi = [
-    { nama: 'Sawah Pemandangan Indah', icon: '🌾', deskripsi: 'Hamparan sawah hijau yang menjadi daya tarik utama wisata alam Dusun Gagan.', tag: 'Wisata Alam' },
-    { nama: 'Sungai Jernih', icon: '💧', deskripsi: 'Aliran sungai bersih yang cocok untuk wisata edukasi dan rekreasi keluarga.', tag: 'Wisata Air' },
-    { nama: 'Spot Foto Desa', icon: '📸', deskripsi: 'Berbagai spot foto menarik dengan latar belakang alam khas desa.', tag: 'Wisata Foto' },
-    { nama: 'Kuliner Tradisional', icon: '🍱', deskripsi: 'Sajian kuliner khas desa yang autentik dan terjangkau untuk wisatawan.', tag: 'Wisata Kuliner' },
-  ]
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {destinasi.map((d, i) => (
-          <div key={i} className="card hover:shadow-xl transition-shadow">
+        {WISATA.map((wisata) => (
+          <Link
+            key={wisata.id}
+            href={`/potensi-desa/wisata/${wisata.id}`}
+            className="group card hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer"
+          >
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">{d.icon}</div>
+              <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">
+                {wisata.icon}
+              </div>
               <div>
-                <h3 className="font-bold text-gray-800 text-lg leading-tight">{d.nama}</h3>
-                <span className="inline-block bg-accent-100 text-accent-700 text-xs font-semibold px-2 py-0.5 rounded-full mt-1">{d.tag}</span>
+                <h3 className="font-bold text-gray-800 text-lg leading-tight">{wisata.nama}</h3>
+                <span className="inline-block bg-accent-100 text-accent-700 text-xs font-semibold px-2 py-0.5 rounded-full mt-1">
+                  {wisata.kategori}
+                </span>
               </div>
             </div>
-            <p className="text-gray-500 text-sm">{d.deskripsi}</p>
-          </div>
+            <p className="text-gray-500 text-sm line-clamp-2">{wisata.deskripsi}</p>
+            <div className="mt-4 flex items-center gap-1 text-primary-500 text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+              Lihat Detail <FiChevronRight size={14} />
+            </div>
+          </Link>
         ))}
       </div>
     </div>
