@@ -31,10 +31,10 @@ export default function ProfilDesaPage() {
               <div className="card">
                 <div className="flex items-center gap-2 mb-4">
                   <span className="text-2xl">👑</span>
-                  <h3 className="font-bold text-primary-700 text-lg">Tokoh Pendiri</h3>
+                  <h3 className="font-bold text-primary-700 text-lg">Tokoh Penting</h3>
                 </div>
                 <div className="space-y-3">
-                  {SEJARAH.tokohPendiri.map((tokoh, i) => (
+                  {SEJARAH.tokohPenting.map((tokoh, i) => (
                     <div key={i} className="p-3 bg-primary-50 rounded-xl">
                       <p className="font-semibold text-primary-700 text-sm">{tokoh.nama}</p>
                       <p className="text-gray-500 text-xs mt-0.5">{tokoh.peran}</p>

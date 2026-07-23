@@ -37,7 +37,7 @@ export const BERITA = [
 
 export const SEJARAH = {
   singkat: 'Dusun Gagan merupakan salah satu dusun yang memiliki sejarah panjang dan kaya budaya. Konon dusun ini telah berdiri sejak abad ke-18, berawal dari sekelompok masyarakat yang membuka lahan pertanian di kawasan ini.',
-  tokohPendiri: [
+  tokohPenting: [
     { nama: 'Ki [Nama Tokoh]', peran: 'Pendiri dan Sesepuh Dusun Gagan' },
     { nama: 'Mbah [Nama Tokoh]', peran: 'Tokoh Agama dan Perintis Pendidikan' },
   ],
@@ -45,9 +45,9 @@ export const SEJARAH = {
 
 export const IDENTITAS_DESA = {
   nama: 'Dusun Gagan',
-  alamatLengkap: 'Dusun Gagan, Desa [Nama Desa], Kec. [Kecamatan], Kab. [Kabupaten], DIY',
-  kodePOS: '55XXX',
-  tahunBerdiri: '19XX',
+  alamatLengkap: 'Gagan, Pengkol, Kec. Nglipar, Kabupaten Gunungkidul, Daerah Istimewa Yogyakarta',
+  kodePOS: '55852',
+  tahunBerdiri: '----',
 }
 
 export const DATA_PENDUDUK = {
