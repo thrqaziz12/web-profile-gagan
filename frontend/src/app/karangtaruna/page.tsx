@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import KarangtarunaGaleriSlider from '@/components/KarangtarunaGaleriSlider'
+import KarangtarunaLogo from '@/components/KarangtarunaLogo'
 import { KARANGTARUNA } from '@/lib/data'
 import Image from 'next/image'
 
@@ -23,20 +24,9 @@ export default function KarangtarunaPage() {
         {/* Hero Banner */}
         <section className="bg-gradient-to-br from-primary-600 via-primary-500 to-accent-400 text-white py-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Logo */}
+            {/* Logo – pakai Client Component agar bisa handle onError */}
             <div className="flex justify-center mb-6">
-              <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white/40 bg-white/10 flex items-center justify-center shadow-lg">
-                <Image
-                  src={logo}
-                  alt={`Logo ${nama}`}
-                  width={112}
-                  height={112}
-                  className="object-contain"
-                  onError={(e) => {
-                    ;(e.target as HTMLImageElement).style.display = 'none'
-                  }}
-                />
-              </div>
+              <KarangtarunaLogo src={logo} nama={nama} />
             </div>
             <h1 className="text-3xl md:text-5xl font-bold mb-3">{nama}</h1>
             <p className="text-primary-100 text-lg max-w-2xl mx-auto">{deskripsi}</p>
@@ -49,25 +39,27 @@ export default function KarangtarunaPage() {
           <p className="section-subtitle">Susunan kepengurusan {nama} Padukuhan Gagan</p>
 
           {/* Ketua – tampil lebih menonjol */}
-          {pengurus.filter((p) => p.peran.toLowerCase().includes('ketua')).map((ketua) => (
-            <div key={ketua.nama} className="flex justify-center mb-6">
-              <div className="card border-t-4 border-primary-500 text-center w-full max-w-xs shadow-md">
-                <div className="flex justify-center mb-4">
-                  <div className="w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center border-4 border-primary-200 overflow-hidden">
-                    {ketua.foto ? (
-                      <Image src={ketua.foto} alt={ketua.nama} width={80} height={80} className="object-cover" />
-                    ) : (
-                      <span className="text-4xl">👤</span>
-                    )}
+          {pengurus
+            .filter((p) => p.peran.toLowerCase().includes('ketua'))
+            .map((ketua) => (
+              <div key={ketua.nama} className="flex justify-center mb-6">
+                <div className="card border-t-4 border-primary-500 text-center w-full max-w-xs shadow-md">
+                  <div className="flex justify-center mb-4">
+                    <div className="w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center border-4 border-primary-200 overflow-hidden">
+                      {ketua.foto ? (
+                        <Image src={ketua.foto} alt={ketua.nama} width={80} height={80} className="object-cover" />
+                      ) : (
+                        <span className="text-4xl">👤</span>
+                      )}
+                    </div>
                   </div>
+                  <h3 className="font-bold text-primary-700 text-lg">{ketua.nama}</h3>
+                  <span className="inline-block mt-1 px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-xs font-semibold">
+                    {ketua.peran}
+                  </span>
                 </div>
-                <h3 className="font-bold text-primary-700 text-lg">{ketua.nama}</h3>
-                <span className="inline-block mt-1 px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-xs font-semibold">
-                  {ketua.peran}
-                </span>
               </div>
-            </div>
-          ))}
+            ))}
 
           {/* Pengurus lainnya */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
