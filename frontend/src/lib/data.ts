@@ -88,7 +88,19 @@ export const DATA_PENDUDUK = {
   ],
 }
 
-export const UMKM = [
+// ===================== DATA UMKM =====================
+
+export type UmkmItem = {
+  id: number
+  logo: string
+  namaUsaha: string
+  namaPemilik: string
+  alamat: string
+  whatsapp: string
+  galeri: string[]
+}
+
+export const UMKM: UmkmItem[] = [
   {
     id: 1,
     logo: '/images/umkm1.jpg',
@@ -96,9 +108,10 @@ export const UMKM = [
     namaPemilik: 'Sari Wulandari',
     alamat: 'RT 02 RW 01, Dusun Gagan',
     whatsapp: 'https://wa.me/6281234567891',
-    produk: [
-      { nama: 'Keripik Singkong Original', harga: 'Rp 10.000', foto: '/images/produk1a.jpg' },
-      { nama: 'Keripik Singkong Pedas', harga: 'Rp 12.000', foto: '/images/produk1b.jpg' },
+    galeri: [
+      '/images/umkm/keripik1.jpg',
+      '/images/umkm/keripik2.jpg',
+      '/images/umkm/keripik3.jpg',
     ],
   },
   {
@@ -108,9 +121,10 @@ export const UMKM = [
     namaPemilik: 'Hadi Santoso',
     alamat: 'RT 05 RW 02, Dusun Gagan',
     whatsapp: 'https://wa.me/6281234567892',
-    produk: [
-      { nama: 'Kain Batik Motif Parang', harga: 'Rp 150.000', foto: '/images/produk2a.jpg' },
-      { nama: 'Kemeja Batik Pria', harga: 'Rp 200.000', foto: '/images/produk2b.jpg' },
+    galeri: [
+      '/images/umkm/batik1.jpg',
+      '/images/umkm/batik2.jpg',
+      '/images/umkm/batik3.jpg',
     ],
   },
 ]
